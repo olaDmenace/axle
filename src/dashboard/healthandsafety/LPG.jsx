@@ -1,40 +1,386 @@
-import React from "react";
+import React, { useState } from "react";
 
-const LPG = (whiteData, setWhiteData) => {
+const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
+  // const [tracking, setTracking] = {
+  //   truckProgrammingId: "",
+  // };
+  const [otherQ1, setOtherQ1] = useState("");
+  const [otherQ2, setOtherQ2] = useState("");
+  const [otherQ3, setOtherQ3] = useState("");
+  const [otherQ4, setOtherQ4] = useState("");
+  const [otherQ5, setOtherQ5] = useState("");
+  const [otherQ6, setOtherQ6] = useState("");
+  const [otherQ7, setOtherQ7] = useState("");
+  const [otherQ8, setOtherQ8] = useState("");
+  const [otherQ9, setOtherQ9] = useState("");
+  const [otherQ10, setOtherQ10] = useState("");
+  const [otherQ11, setOtherQ11] = useState("");
+  const [otherQ12, setOtherQ12] = useState("");
+  const [otherQ13, setOtherQ13] = useState("");
+  const [otherQ14, setOtherQ14] = useState("");
+  const [otherQ15, setOtherQ15] = useState("");
+
+  console.log("question >> ", data);
+
+  // const submitForm = () => {
+  //   let data = {
+  //     truckProgrammingId: "",
+  //     assessments: [...data],
+  //   };
+  // };
+  // const DynamisLicense = () => {
+  //   if (data.truckId === "others") {
+  //     return (
+  //       <>
+  //         <label>
+  //           {" "}
+  //           hello world
+  //           <input />
+  //         </label>
+  //       </>
+  //     );
+  //   }
+  // };
+
+  const questionsForm = (question) => {
+    if (question === "q1" && data.q1.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ1}
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q1.answer = e.target.value;
+                setData(ques);
+                setOtherQ1(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+    if (question === "q2" && data.q2.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ2}
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q2.answer = e.target.value;
+                setData(ques);
+                setOtherQ2(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+    if (question === "q3" && data.q3.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ3}
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q3.answer = e.target.value;
+                setData(ques);
+                setOtherQ3(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+    if (question === "q4" && data.q4.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ4}
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q4.answer = e.target.value;
+                setData(ques);
+                setOtherQ4(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+    if (question === "q5" && data.q5.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ5}
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q5.answer = e.target.value;
+                setData(ques);
+                setOtherQ5(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+    if (question === "q6" && data.q6.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ6}
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q6.answer = e.target.value;
+                setData(ques);
+                setOtherQ6(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+    if (question === "q7" && data.q7.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ7}
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q7.answer = e.target.value;
+                setData(ques);
+                setOtherQ7(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+    if (question === "q8" && data.q8.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ8}
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q8.answer = e.target.value;
+                setData(ques);
+                setOtherQ8(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+    if (question === "q9" && data.q9.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ9}
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q9.answer = e.target.value;
+                setData(ques);
+                setOtherQ9(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+    if (question === "q10" && data.q10.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ10}
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q10.answer = e.target.value;
+                setData(ques);
+                setOtherQ10(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+    if (question === "q11" && data.q11.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ11}
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q11.answer = e.target.value;
+                setData(ques);
+                setOtherQ11(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+    if (question === "q12" && data.q12.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ12}
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q12.answer = e.target.value;
+                setData(ques);
+                setOtherQ12(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+    if (question === "q13" && data.q13.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ13}
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q13.answer = e.target.value;
+                // setData(ques);
+                setOtherQ13(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+    if (question === "q14" && data.q14.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ14}
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q14.answer = e.target.value;
+                // setData(ques);
+                setOtherQ14(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+    if (question === "q15" && data.q15.answer == "others") {
+      return (
+        <>
+          <label>
+            {" "}
+            Specify Others
+            <input
+              className="w-full input input-primary"
+              placeholder="Others"
+              value={otherQ15}
+              type="text"
+              onChange={(e) => {
+                let value = e.target.value;
+                let ques = { ...data };
+                ques.q15.answer = e.target.value;
+                setData(ques);
+                setOtherQ15(value);
+              }}
+            />
+          </label>
+        </>
+      );
+    }
+  };
+
   return (
     <div>
       <div className="space-y-2">
         {" "}
         <form action="" className="grid text-primary gap-5 w-full">
-          <fieldset className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 items-end">
-            <label htmlFor="">
-              Truck Numbers
-              <select className="w-full select select-primary" name="" id="">
-                <option value="1"> Select Truck Numbers</option>
-              </select>
-            </label>
-
-            <label htmlFor="">
-              Product Type
-              <input
-                className="w-full input input-primary"
-                placeholder="White Powder"
-                type="text"
-                name=""
-                id=""
-              />
-            </label>
-            <label htmlFor="">
-              Odometer Reading
-              <input
-                className="w-full input input-primary"
-                placeholder="1234"
-                type="text"
-                name=""
-                id=""
-              />
-            </label>
-          </fieldset>
           <h2 className="text-xl -mb-4 text-primary font-semibold">
             TIF - LPG
           </h2>
@@ -53,23 +399,41 @@ const LPG = (whiteData, setWhiteData) => {
             <label htmlFor="">
               Delivery Officer
               <br />
-              <select className="w-full select select-primary" name="" id="">
-                <option value=""> Select Delivery Officer</option>
-              </select>
+              <div className="border border-primary h-12 rounded-lg grid items-center">
+                {truckPro
+                  .filter((t) => t.truckId === data.truckId)
+                  .map((item) => (
+                    <p key={item.deliveryOfficerId} className="px-4">
+                      {item.deliveryOfficer}
+                    </p>
+                  ))}
+              </div>
             </label>
             <label htmlFor="">
               Journey Officer
               <br />
-              <select className="w-full select select-primary" name="" id="">
-                <option value=""> Select Journey Officer</option>
-              </select>
+              <div className="border border-primary h-12 rounded-lg grid items-center">
+                {truckPro
+                  .filter((t) => t.truckId === data.truckId)
+                  .map((item) => (
+                    <p key={item.journeyOfficerId} className="px-4">
+                      {item.journeyOfficer}
+                    </p>
+                  ))}
+              </div>
             </label>
             <label htmlFor="">
               Logistics Coordinator
               <br />
-              <select className="w-full select select-primary" name="" id="">
-                <option value=""> Select LC</option>
-              </select>
+              <div className="border border-primary h-12 rounded-lg grid items-center">
+                {truckPro
+                  .filter((t) => t.truckId === data.truckId)
+                  .map((item) => (
+                    <p key={item.logisticsCoordinatorId} className="px-4">
+                      {item.logisticsCoordinator}
+                    </p>
+                  ))}
+              </div>
             </label>
             <label htmlFor="">
               Inspection Date
@@ -85,236 +449,366 @@ const LPG = (whiteData, setWhiteData) => {
           <hr />
           <fieldset className="grid gap-3 md:grid-cols-1 lg:grid-cols-1 items-end">
             <label htmlFor="">
-              1. Vehicle license, Road worthiness and Insurance Certificates
-              Valid?
+              {data.q1.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q1.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q1.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select</option>
+                {" "}
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
             </label>
+            {questionsForm("q1")}
+
             <label htmlFor="">
-              2. Valid Drivers’ license?
+              {data.q2.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q2.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q2.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select</option>
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
             </label>
+            {questionsForm("q2")}
             <label htmlFor="">
-              3. Complete PPE? (Hard Helmet, Safety boots, and Hi-Vis clothing,
-              Company T-Shirt and Identity cards)
+              {data.q3.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q3.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q3.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select </option>
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
+              {questionsForm("q3")}
             </label>
             <label htmlFor="">
-              4. Assistant Available?
+              {data.q4.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q4.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q4.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select</option>
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
+              {questionsForm("q4")}
             </label>
             <label htmlFor="">
-              5. Truck free from oil and gas leaks?
+              {data.q5.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q5.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q5.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select</option>
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
+              {questionsForm("q5")}
             </label>
             <label htmlFor="">
-              6. Windscreen free of cracks and the wipers in good condition?
+              {data.q6.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q6.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q6.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select</option>
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
+              {questionsForm("q6")}
             </label>
             <label htmlFor="">
-              7. Is the horn & reverse alarm functional?
+              {data.q7.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q7.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q7.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select</option>
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
+              {questionsForm("q7")}
             </label>
             <label htmlFor="">
-              8. Driving mirrors free of cracks and firmly fixed?
+              {data.q8.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q8.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q8.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select</option>
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
+              {questionsForm("q8")}
             </label>
             <label htmlFor="">
-              9. All Tyres including the 2 spares in good condition and of a
-              minimum thread depth of 2mm?
+              {data.q9.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q9.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q9.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select</option>
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
+              {questionsForm("q9")}
             </label>
             <label htmlFor="">
-              10. Correct wheel nuts and studs are fitted?
+              {data.q10.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q10.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q10.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select</option>
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
+              {questionsForm("q10")}
             </label>
             <label htmlFor="">
-              11. Seat belts in the truck fitted and functioning properly?
+              {data.q11.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q11.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q11.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select</option>
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
+              {questionsForm("q11")}
             </label>
             <label htmlFor="">
-              12. Does the engine start using the ignition key? (No pushing,
-              non-usage of wires)
+              {data.q12.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q12.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q12.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select</option>
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
+              {questionsForm("q12")}
             </label>
             <label htmlFor="">
-              13. Vehicle equipped with two (unexpired) 9kg fire extinguisher
-              and caution sign?
+              {data.q13.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q13.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q13.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select</option>
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
+              {questionsForm("q13")}
             </label>
             <label htmlFor="">
-              14. Vehicle have 2 standard wheel chocks with handles?
+              {data.q14.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q14.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q14.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select</option>
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
+              {questionsForm("q14")}
             </label>
             <label htmlFor="">
-              15. Are the following Hydraulic Jack, Wheel Spanner, Tyre Lifter,
-              Tyre chains and Padlocks, Tyre Gauge, Tyre Pump Offloading
-              Adaptor, Towing Chain and Harness present and effective?
+              {data.q15.question}
               <br />
               <select
                 className="w-full select select-primary"
                 name=""
                 id=""
-                value={whiteData.answer}
-                onChange={(e) =>
-                  setWhiteData({ ...whiteData, answer: +e.target.value })
-                }
+                value={data.q15.answer}
+                onChange={(e) => {
+                  console.log("selected >> ", e.target.value);
+                  // let value = e.target.value;
+                  let ques = { ...data };
+                  ques.q15.answer = e.target.value;
+                  console.log("data to update ", ques);
+                  setData(ques);
+                  console.log("data to update ", data);
+                }}
               >
-                <option value="1"> Select</option>
+                <option value="yes"> Yes</option>
+                <option value="no"> No</option>
+                <option value="others"> Others</option>
               </select>
+              {questionsForm("q15")}
             </label>
           </fieldset>
         </form>
