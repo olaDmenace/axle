@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
+const WhiteProduct = ({ data, setData, setTruckPro, truckPro }) => {
   // const [tracking, setTracking] = {
   //   truckProgrammingId: "",
   // };
@@ -382,7 +382,7 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
         {" "}
         <form action="" className="grid text-primary gap-5 w-full">
           <h2 className="text-xl -mb-4 text-primary font-semibold">
-            TIF - LPG
+            TIF - WHITE PRODUCT
           </h2>
           <hr />
           <fieldset className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 items-end">
@@ -400,39 +400,33 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
               Delivery Officer
               <br />
               <div className="border border-primary h-12 rounded-lg grid items-center">
-                {truckPro
-                  .filter((t) => t.truckId === data.truckId)
-                  .map((item) => (
-                    <p key={item.deliveryOfficerId} className="px-4">
-                      {item.deliveryOfficer}
-                    </p>
-                  ))}
+                {truckPro.map((item) => (
+                  <p key={item.truck.deliveryOfficerId} className="px-4">
+                    {item.truck.deliveryOfficer}
+                  </p>
+                ))}
               </div>
             </label>
             <label htmlFor="">
               Journey Officer
               <br />
               <div className="border border-primary h-12 rounded-lg grid items-center">
-                {truckPro
-                  .filter((t) => t.truckId === data.truckId)
-                  .map((item) => (
-                    <p key={item.journeyOfficerId} className="px-4">
-                      {item.journeyOfficer}
-                    </p>
-                  ))}
+                {truckPro.map((item) => (
+                  <p key={item.truck.journeyOfficerId} className="px-4">
+                    {item.truck.journeyOfficer}
+                  </p>
+                ))}
               </div>
             </label>
             <label htmlFor="">
               Logistics Coordinator
               <br />
               <div className="border border-primary h-12 rounded-lg grid items-center">
-                {truckPro
-                  .filter((t) => t.truckId === data.truckId)
-                  .map((item) => (
-                    <p key={item.logisticsCoordinatorId} className="px-4">
-                      {item.logisticsCoordinator}
-                    </p>
-                  ))}
+                {truckPro.map((item) => (
+                  <p key={item.truck.logisticsCoordinatorId} className="px-4">
+                    {item.truck.logisticsCoordinator}
+                  </p>
+                ))}
               </div>
             </label>
             <label htmlFor="">
@@ -461,9 +455,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q1.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 {" "}
@@ -487,9 +480,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q2.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 <option value="yes"> Yes</option>
@@ -511,9 +503,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q3.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 <option value="yes"> Yes</option>
@@ -535,9 +526,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q4.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 <option value="yes"> Yes</option>
@@ -559,9 +549,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q5.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 <option value="yes"> Yes</option>
@@ -583,9 +572,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q6.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 <option value="yes"> Yes</option>
@@ -607,9 +595,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q7.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 <option value="yes"> Yes</option>
@@ -631,9 +618,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q8.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 <option value="yes"> Yes</option>
@@ -655,9 +641,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q9.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 <option value="yes"> Yes</option>
@@ -679,9 +664,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q10.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 <option value="yes"> Yes</option>
@@ -703,9 +687,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q11.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 <option value="yes"> Yes</option>
@@ -727,9 +710,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q12.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 <option value="yes"> Yes</option>
@@ -751,9 +733,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q13.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 <option value="yes"> Yes</option>
@@ -775,9 +756,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q14.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 <option value="yes"> Yes</option>
@@ -799,9 +779,8 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
                   // let value = e.target.value;
                   let ques = { ...data };
                   ques.q15.answer = e.target.value;
-                  console.log("data to update ", ques);
+
                   setData(ques);
-                  console.log("data to update ", data);
                 }}
               >
                 <option value="yes"> Yes</option>
@@ -816,4 +795,4 @@ const LPG = ({ data, setData, trucks, truckPro, setTruckPro }) => {
     </div>
   );
 };
-export default LPG;
+export default WhiteProduct;

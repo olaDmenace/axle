@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import PageTitle from "../../utils/PageTitle";
-import WhiteProduct from "./WhiteProduct";
-import LPG from "./LPG";
 import FormTitle from "../FormTitle";
-import WhiteProduct2 from "./WhiteProduct2";
-import LPG2 from "./LPG2";
-import endpoint from "../../utils/endpoints/endpoint";
 
-function Tif() {
-  PageTitle("Axle & Cartage - Pre Trip Inspection Form");
-  const [form, setForm] = useState(0);
+import endpoint from "../../utils/endpoints/endpoint";
+import Tif from "./FormA/tif";
+import Tif2 from "./FormB/tif2";
+import LPG from "./FormB/LPG";
+
+function TifForm() {
+  PageTitle("Axle & Cartage - TifForm");
 
   const [data, setData] = useState({
     truckId: "",
@@ -172,21 +171,10 @@ function Tif() {
     },
     comments: "",
   });
-  const [trucks, setTrucks] = useState([]);
-  const [inspect, setInspect] = useState([]);
+
   const [truckPro, setTruckPro] = useState([]);
-  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    endpoint
-      .post("/truck/inspect")
-      .then((res) => {
-        console.log(res.data.data);
-        setInspect(res.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
     endpoint
       .get("/truck/programme")
       .then((res) => {
@@ -198,56 +186,18 @@ function Tif() {
       });
   }, []);
 
-  const activeForm = () => {
-    if (form === 0) {
-      return (
-        <>
-          {data.truckProgrammingId === "LFG" ? (
-            <WhiteProduct
-              data={data}
-              setData={setData}
-              truckPro={truckPro}
-              setTruckPro={setTruckPro}
-            />
-          ) : (
-            <LPG
-              data={data}
-              setData={setData}
-              truckPro={truckPro}
-              setTruckPro={setTruckPro}
-            />
-          )}
-        </>
-      );
-    } else if (form === 1) {
-      return <WhiteProduct2 data={data} setData={setData} />;
-    }
+  const [hide, setHide] = useState(true);
+
+  const handleChange = (e) => {
+    setTruckPro(e.target.value);
+    setHide(false);
   };
 
-  const truck = "/truck/inspect";
-
-  // Handles the submit event
-  function handleSubmit(e) {
-    console.log(data);
-    endpoint
-      .post(truck, data)
-      .then((res) => {
-        console.log(res);
-      })
-      .then((err) => {
-        console.log(err);
-      });
-  }
-
   return (
-    <div className="space-y-2 grid">
+    <div className="space-y-2">
       <FormTitle Title={"Pre Trip Inspection Form"} />
-      <hr />
-      <ul className="steps steps-horizontal w-full pt-5">
-        <li className="step step-primary"></li>
-        <li className={`step ${form === 1 ? `step-primary` : `step`}`}></li>
-      </ul>
-      {/* <div className="flex gap-10 pb-10 overflow-x-scroll scrollbar-thin scrollbar-track-green-100 scrollbar-thumb-green-900"> */}
+      <hr className="pb-5" />
+
       <fieldset className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 items-end">
         <label htmlFor="">
           Truck Numbers
@@ -264,7 +214,10 @@ function Tif() {
               })
             }
           >
-            <option value=""> Select Truck Numbers</option>
+            <option value={truckPro.productType} onChange={handleChange}>
+              {" "}
+              Select Truck Numbers
+            </option>
 
             {truckPro.map((item) => (
               <option value={item.truck.truckId} key={item.truck.truckId}>
@@ -278,11 +231,14 @@ function Tif() {
           Product Type
           <br />
           <div className="border border-primary h-12 rounded-lg grid items-center px-4">
-            {truckPro.map((item) => (
-              <p key={item.product.productId}>{item.product.productType}</p>
-            ))}
+            {truckPro
+              .filter((i) => i.truck.truckId === data.truckId)
+              .map((item) => (
+                <p key={item.product.productId}>{item.product.productType}</p>
+              ))}
           </div>
         </label>
+
         <label htmlFor="">
           Odometer Reading
           <input
@@ -294,30 +250,28 @@ function Tif() {
           />
         </label>
       </fieldset>
-      <div>{activeForm()}</div>
-
-      {/* </div> */}
-      <div className="btn-group mx-auto pt-5">
-        <button
-          disabled={form === 0}
-          onClick={() => {
-            setForm((currForm) => currForm - 1);
-          }}
-          className="btn btn-active"
-        >
-          Prev
-        </button>
-        <button
-          className="btn btn-active"
-          onClick={() => {
-            form === 1 ? handleSubmit() : setForm((currForm) => currForm + 1);
-          }}
-        >
-          {form === 1 ? "Submit" : "Next"}
-        </button>
-      </div>
+      {hide && (
+        <div>
+          {truckPro.filter((i) => i.product.productType === "LFG") ? (
+            <Tif2
+              data={data}
+              setData={setData}
+              truckPro={truckPro}
+              setTruckPro={setTruckPro}
+            />
+          ) : (
+            <Tif
+              data={data}
+              setData={setData}
+              truckPro={truckPro}
+              setTruckPro={setTruckPro}
+            />
+          )}
+          {handleChange}
+        </div>
+      )}
     </div>
   );
 }
 
-export default Tif;
+export default TifForm;
