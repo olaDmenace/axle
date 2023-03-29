@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function PopUp(props) {
   return (
@@ -13,15 +13,18 @@ function PopUp(props) {
     //     <div className='w-10/12 h-2/3 relative'></div>
     //   </div>
     // </div>
-    <div onClick={props.state} className='fixed h-screen w-full top-0 left-0 z-10'>
-      <div className='h-screen w-full grid absolute top-0 left-0 bg-black/60'>
-        <div className='grid bg-white/90 gap-5 w-2/3 lg:w-1/3 relative z-10 place-self-center rounded p-5 py-10 text-white/70'>
+    <div
+      onClick={props.state}
+      className="fixed h-screen w-full top-0 left-0 z-10"
+    >
+      <div className="h-screen w-full grid absolute top-0 left-0 bg-black/60">
+        <div className="grid bg-white/90 gap-5 w-2/3 lg:w-1/3 relative z-10 place-self-center rounded p-5 py-10 text-white/70">
           {/* <img className='' src={props.icon} alt="" /> */}
           {props.children}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default PopUp
+export default PopUp;

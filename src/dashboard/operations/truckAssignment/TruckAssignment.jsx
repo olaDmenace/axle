@@ -146,7 +146,7 @@ function TruckAssignment() {
     <div>
       <FormTitle Title={"Truck Assignment"} />
       {show && (
-        <PopUp>
+        <PopUp onClick={(e) => closePop()}>
           {reply.icon}
           <p className="mx-auto text-center text-primary bg-transparent">
             {reply.message}
